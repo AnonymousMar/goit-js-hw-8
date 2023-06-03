@@ -18,12 +18,11 @@ function onSubmitForm(e) {
     localStorage.removeItem('feedback-form-state');
 }
 
-(function dataFromLocalStorage() {
+(function() {
     const data = JSON.parse(localStorage.getItem('feedback-form-state'));
-    const email = document.querySelector('.feedback-form input');
-    const message = document.querySelector('.feedback-form textarea');
+    
     if (data) {
-        email.value = data.email;
-        message.value = data.message;
+        form.email.value = data.email || "";
+        form.message.value = data.message || "";
     }
 })();
